@@ -1,0 +1,53 @@
+{
+  "name": "polymer-starter-kit",
+  "version": "4.0.0",
+  "description": "A starting point for Polymer apps",
+  "author": "The Polymer Authors",
+  "license": "BSD-3-Clause",
+  "repository": "Polymer/polymer-starter-kit",
+  "scripts": {
+    "start": "polymer serve",
+    "build": "polymer build",
+    "lint": "polymer lint",
+    "test": "polymer test",
+    "link": "link-module-alias",
+    "test:integration": "polymer build # test that psk builds without error with the CLI"
+  },
+  "dependencies": {
+    "@polymer/app-layout": "^3.0.0-pre.15",
+    "@polymer/app-route": "^3.0.0-pre.15",
+    "@polymer/iron-flex-layout": "^3.0.0-pre.15",
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.15",
+    "@polymer/iron-list": "^3.1.0",
+    "@polymer/iron-media-query": "^3.0.0-pre.15",
+    "@polymer/iron-pages": "^3.0.0-pre.15",
+    "@polymer/iron-selector": "^3.0.1",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-card": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.0-pre.15",
+    "@polymer/paper-input": "^3.2.1",
+    "@polymer/polymer": "^3.0.0",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "link-module-alias": "^1.2.0",
+    "pwa-helpers": "^0.9.1",
+    "redux": "^4.0.5",
+    "redux-lit": "^1.0.1",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.7.1",
+    "wct-browser-legacy": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=8.0"
+  },
+  "_moduleAliases": {
+    "~src": "./src",
+    "~components": "./src/components",
+    "~Utilities": "./src/components/Utilities",
+    "~Modules": "./src/components/Modules",
+    "~Static": "./src/components/Static",
+    "~Widgets": "./src/components/Widgets",
+    "~assets": "./src/assets"
+  }
+}
