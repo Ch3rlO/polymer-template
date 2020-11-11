@@ -1,3 +1,3 @@
-## Buttons Folder 📁
+## Store (REDUX) Folder 📁
 
-\*\* Here is the place that you can put your Buttons components i.g logOut Button, viewButton updateButton \*\*
+**HERE IS YOUR STATE MANAGEMENT FOLDER WHERE ALL THE API CALLS SHOULD BE HERE**

@@ -1,10 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 
 // Polymer components - 🚀
-import '@polymer/iron-list/iron-list.js';
+import '@polymer/iron-list/iron-list.js'
 
 // Routes - 👨‍✈️
-import { routes } from '~src/routes.js';
+import { routes } from '~src/routes.js'
 
 class SideBar extends PolymerElement {
   static get template() {
@@ -52,22 +52,22 @@ class SideBar extends PolymerElement {
           >
         </template>
       </iron-list>
-    `;
+    `
   }
 
   static get properties() {
     return {
       links: {
         type: Array,
-        value: () => routes.filter((link) => link.visible),
+        value: () => routes,
       },
-    };
+    }
   }
 
   isCurrentPath(path) {
-    const { pathname } = window.location;
-    return pathname.includes(path) ? 'active' : '';
+    const { pathname } = window.location
+    return pathname.includes(path) ? 'active' : ''
   }
 }
 
-window.customElements.define('side-nav-bar-layout', SideBar);
+window.customElements.define('side-nav-bar-layout', SideBar)

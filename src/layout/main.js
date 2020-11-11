@@ -1,28 +1,28 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 import {
   setPassiveTouchGestures,
   setRootPath,
-} from '@polymer/polymer/lib/utils/settings.js';
-import '@polymer/app-route/app-location.js';
-import '@polymer/app-route/app-route.js';
-import '@polymer/iron-pages/iron-pages.js';
-import '@polymer/iron-selector/iron-selector.js';
-import '@polymer/paper-icon-button/paper-icon-button.js';
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
-import '@polymer/app-layout/app-drawer/app-drawer.js';
-import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
-import '@polymer/app-layout/app-header/app-header.js';
-import '@polymer/app-layout/app-header-layout/app-header-layout.js';
-import '@polymer/app-layout/app-toolbar/app-toolbar.js';
-import '@polymer/app-layout/demo/sample-content.js';
+} from '@polymer/polymer/lib/utils/settings.js'
+import '@polymer/app-route/app-location.js'
+import '@polymer/app-route/app-route.js'
+import '@polymer/iron-pages/iron-pages.js'
+import '@polymer/iron-selector/iron-selector.js'
+import '@polymer/paper-icon-button/paper-icon-button.js'
+import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js'
+import '@polymer/app-layout/app-drawer/app-drawer.js'
+import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js'
+import '@polymer/app-layout/app-header/app-header.js'
+import '@polymer/app-layout/app-header-layout/app-header-layout.js'
+import '@polymer/app-layout/app-toolbar/app-toolbar.js'
+import '@polymer/app-layout/demo/sample-content.js'
 
-import { routeGenerate, routes } from '../routes.js';
+import { routeGenerate, routes } from '../routes.js'
 
 // Widget - [side-bar-widget]
-import '~components/Widgets/Nav/SideNavBar.js';
+import '~Widgets/Nav/SideNavBar.js'
 
-setPassiveTouchGestures(true);
-setRootPath(MyAppGlobals.rootPath);
+setPassiveTouchGestures(true)
+setRootPath(MyAppGlobals.rootPath)
 
 class RootLayout extends PolymerElement {
   static get template() {
@@ -74,10 +74,11 @@ class RootLayout extends PolymerElement {
                   `<${link.name}-page name="${link.name}"></${link.name}-page>`
               )
             )}
+            <not-found-page name="not-found"></not-found-page>
           </iron-pages>
         </app-header-layout>
       </app-drawer-layout>
-    `;
+    `
   }
 
   static get properties() {
@@ -89,29 +90,27 @@ class RootLayout extends PolymerElement {
       },
       links: {
         type: Array,
-        value: () => routes.filter((link) => link.visible),
+        value: () => routes,
       },
       routeData: Object,
       subroute: Object,
-    };
+    }
   }
 
   static get observers() {
-    return ['_routePageChanged(routeData.page)'];
+    return ['_routePageChanged(routeData.page)']
   }
 
   _routePageChanged(page) {
     if (page) {
-      const route =
-        routes.find((link) => link.page === page && link.visible) ||
-        'not-found';
-      this.page = route;
-    } else this.page = 'home';
+      const route = routes.find((link) => link.page === page) || 'not-found'
+      this.page = route
+    } else this.page = 'home'
   }
 
   _pageChanged(page) {
-    routeGenerate(page);
+    routeGenerate(page)
   }
 }
 
-window.customElements.define('my-app', RootLayout);
+window.customElements.define('my-app', RootLayout)

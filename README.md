@@ -1,8 +1,8 @@
 ## Polymer Template 🛕
 
-### Structure
+#### Structure
 
-```
+```bash
 - 📂 POLYMER-TEMPLATE
    - 📂 __src__
      - 📂 __assets__
@@ -53,12 +53,14 @@
    - 📄 [.prettierrc](.prettierrc)
 ```
 
-### Using Technologies ☀️
+#### Used Technologies ☀️
 
-- lit-html & lit-element (\*)
-- Polymer
-- Redux
+- Polymer (3.0) lit-html & lit-element (\*)
+- Polymer-CLI (1.9)
+- Redux (4.0)
+- PWA Helpers (0.9)
+- Link Modules Alias (1.2)
 
-### Task runner 🖥️
+#### Task runner 🖥️
 
 - NPM

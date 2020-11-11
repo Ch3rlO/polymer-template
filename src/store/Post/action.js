@@ -5,7 +5,12 @@
  *
  */
 
-export const addPost = (state, payload) => ({
+export const addPost = (payload) => ({
   type: 'ADD_POST',
   payload,
-});
+})
+
+export const search = (payload) => ({
+  type: 'SEARCH',
+  payload,
+})

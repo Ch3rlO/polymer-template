@@ -1,5 +1,5 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-input/paper-input.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
+import '@polymer/paper-input/paper-input.js'
 
 class SearchInput extends PolymerElement {
   static get template() {
@@ -13,10 +13,16 @@ class SearchInput extends PolymerElement {
       <paper-input-container>
         <label slot="label">[[label]]</label>
         <iron-input slot="input">
-          <input on-keyup="searchAction" class="my-input" />
+          <input
+            id="search-input-text"
+            class="my-input"
+            placeholder="[[placeholder]]"
+            value="{{value::input}}"
+            on-keyup="searchAction"
+          />
         </iron-input>
       </paper-input-container>
-    `;
+    `
   }
 
   static get properties() {
@@ -24,6 +30,10 @@ class SearchInput extends PolymerElement {
       label: {
         type: String,
         value: () => 'Search',
+      },
+      placeholder: {
+        type: String,
+        value: () => 'Are you looking for something !',
       },
       action: {
         type: Function,
@@ -34,12 +44,17 @@ class SearchInput extends PolymerElement {
         value: () => '',
         notify: true,
       },
-    };
+    }
   }
 
   searchAction() {
-    this.action(this.text);
+    console.log({ a: this.action })
+    this.action({ text: this.inputValue('search-input-text').value })
+  }
+
+  inputValue(id) {
+    return this.shadowRoot.getElementById(id)
   }
 }
 
-window.customElements.define('search-input', SearchInput);
+window.customElements.define('search-input', SearchInput)

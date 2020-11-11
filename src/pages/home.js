@@ -1,8 +1,8 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
 
-import { connect } from 'pwa-helpers';
-import store from '../store/Post/index';
-import { addPost } from '../store/Post/action.js';
+import { connect } from 'pwa-helpers'
+import store from '../store/Post/index'
+import { addPost, search } from '../store/Post/action.js'
 
 /**
  *
@@ -11,13 +11,13 @@ import { addPost } from '../store/Post/action.js';
  * Inputs : [search-input]
  *
  */
-import '~Utilities/Cards/Post.js';
-import '~Utilities/Inputs/Search.js';
+import '~Utilities/Cards/Post.js'
+import '~Utilities/Inputs/Search.js'
 
 class Home extends connect(store)(PolymerElement) {
   constructor() {
-    super();
-    this.posts = [];
+    super()
+    this.posts = []
   }
 
   static get template() {
@@ -37,7 +37,10 @@ class Home extends connect(store)(PolymerElement) {
       </style>
       <div class="flex flex-wrap justify-start">
         <div class="">
-          <search-input></search-input>
+          <search-input
+            action="[[searchByTitle]]"
+            placeholder="Search By Title"
+          ></search-input>
         </div>
         <div class="grid">
           <template is="dom-repeat" items="[[posts]]">
@@ -45,26 +48,30 @@ class Home extends connect(store)(PolymerElement) {
           </template>
         </div>
       </div>
-    `;
+    `
   }
 
   static get properties() {
-    return {};
+    return {}
   }
 
   stateChanged(state) {
-    this.posts = state.posts;
+    this.posts = state.posts
   }
 
   addNewPost() {
     store.dispatch(
       addPost({
-        title: 'ADDEDEDED',
+        title: 'is it random ?',
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, molestiae quas officia sit eius consectetur velit nobis atque voluptas ducimus ab, quibusdam sequi quasi incidunt, debitis a dolore modi. Veritatis?',
       })
-    );
+    )
+  }
+
+  searchByTitle(payload) {
+    store.dispatch(search(payload))
   }
 }
 
-window.customElements.define('home-page', Home);
+window.customElements.define('home-page', Home)

@@ -1,3 +1,15 @@
+/**
+ * All your routes should be registered here 🤟
+ * Object DESCRIPTION
+ *    - path    => with out the '/' ()
+ *    - name    => your page name (should be unique)
+ *    - iso     => to check what route you're currently in 🏁
+ *    - page    => the page name (that should be placed in pages)
+ *    - title   => the title for your page that's appear to the user (you could use iso to support multi language projects)
+ *    - visible => if you want the user to see it could be e
+ *
+ */
+
 export const routes = [
   {
     path: '',
@@ -5,25 +17,8 @@ export const routes = [
     iso: 'home',
     page: 'home',
     title: 'Home',
-    visible: true,
   },
-  {
-    path: 'about-us',
-    name: 'AboutUs',
-    iso: 'about-us',
-    page: 'about-us',
-    title: 'About Us',
-    visible: true,
-  },
-  {
-    path: 'not-found',
-    name: 'NotFound',
-    iso: 'not-found',
-    page: 'not-found',
-    title: 'Not Found',
-    visible: false,
-  },
-];
+]
 
 export const routeGenerate = (routeName = 'not-found') =>
-  import(`./pages/${routeName}.js`);
+  import(`./pages/${routeName}.js`)

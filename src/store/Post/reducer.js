@@ -1,4 +1,4 @@
-import initState from './state';
+import initState from './state'
 
 export const reducer = (state = initState, action) => {
   switch (action.type) {
@@ -6,8 +6,15 @@ export const reducer = (state = initState, action) => {
       return {
         ...state,
         posts: [...state.posts, action.payload],
-      };
+      }
+    case 'SEARCH':
+      return {
+        ...state,
+        posts: state.posts.filter((post) =>
+          post.title.includes(action.payload.text)
+        ),
+      }
     default:
-      return state;
+      return state
   }
-};
+}

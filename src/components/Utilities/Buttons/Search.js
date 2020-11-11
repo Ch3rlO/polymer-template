@@ -1,5 +1,5 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-card/paper-card.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
+import '@polymer/paper-card/paper-card.js'
 
 class SearchButton extends PolymerElement {
   static get template() {
@@ -17,7 +17,7 @@ class SearchButton extends PolymerElement {
       >
         <div class="card-content">[[data.description]]</div>
       </paper-card>
-    `;
+    `
   }
 
   static get properties() {
@@ -25,8 +25,8 @@ class SearchButton extends PolymerElement {
       data: {
         type: Object,
       },
-    };
+    }
   }
 }
 
-window.customElements.define('search-button', SearchButton);
+window.customElements.define('search-button', SearchButton)
